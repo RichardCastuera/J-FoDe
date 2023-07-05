@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:j_fode/screens/sign_up_screen.dart';
 import 'package:j_fode/screens/welcome_screen.dart';
 
 void main() {
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomeScreen(),
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        SignUpScreen.id: (context) => SignUpScreen(),
+      },
     );
   }
 }

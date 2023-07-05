@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:j_fode/screens/sign_up_screen.dart';
 import '../widgets/text_style.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
+  static const String id = 'welcome_screen';
 
   @override
   Widget build(BuildContext context) {
@@ -16,54 +17,23 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Welcome',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+              mediumText(label: 'Welcome', color: Colors.white),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    welcomeText('Pinoy Food'),
-                    welcomeText('To Enjoy'),
+                    welcomeText(label: 'Pinoy Food', color: Colors.white),
+                    welcomeText(label: 'To Enjoy', color: Colors.white),
                   ],
                 ),
               ),
               SizedBox(height: 50.0),
-              Center(
-                child: TextButton(
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(Colors.white),
-                    shape: MaterialStatePropertyAll(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: ListTile(
-                    contentPadding: EdgeInsets.symmetric(horizontal: 50.0),
-                    title: Text(
-                      'Get started',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    trailing: Icon(
-                      Icons.keyboard_arrow_right,
-                      color: Colors.red,
-                      size: 50.0,
-                    ),
-                  ),
-                ),
+              navigationButton(
+                buttonColor: Colors.white,
+                contentColor: Colors.red,
+                onPressed: () => Navigator.pushNamed(context, SignUpScreen.id),
+                label: 'Get Started',
               ),
             ],
           ),
